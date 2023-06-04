@@ -19,7 +19,7 @@ private:
 		Node* right;
 	};
 	Node* root;
-	int Search(Node* root, T word) {
+	Node* Search(Node* root, T word) {
 		if (root == nullptr) return 0;
 		else if (root->word == word)
 			return root->count;
