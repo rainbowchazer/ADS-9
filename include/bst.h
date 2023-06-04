@@ -22,7 +22,7 @@ private:
 	Node* Search(Node* root, T word) {
 		if (root == nullptr) return 0;
 		else if (root->word == word)
-			return root->count;
+			return root;
 		else if (word < root->word) return search(root->left, word);
 		else return search(root->right, word);
 	}
