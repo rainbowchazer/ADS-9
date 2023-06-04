@@ -7,11 +7,9 @@
 #include <cctype>
 #include <algorithm>
 template < typename T >
-class BST
-{
-private:
-  struct Node
-  {
+class BST {
+ private:
+  struct Node {
     T word;
     int count;
     Node* left;
@@ -21,11 +19,9 @@ private:
   int Search(Node* root, const T& word) {
     if (root == nullptr) {
       return 0;
-    }
-    else if (root->word == word) {
+    } else if (root->word == word) {
       return root->count;
-    }
-    else if (root->word < word) {
+    } else if (root->word < word) {
       return Search(root->right, word);
     }
     return Search(root->left, word);
@@ -36,14 +32,11 @@ private:
       root-> word = word;
       root-> count = 1;
       root-> left = root-> right = nullptr;
-    }
-    else if (root-> word > word) {
+    } else if (root-> word > word) {
       root-> left = addNode(root-> left, word);
-    }
-    else if (root-> word < word) {
+    } else if (root-> word < word) {
       root-> right = addNode(root-> right, word);
-    }
-    else
+    } else
       root-> count++;
     return root;
   }
@@ -52,7 +45,7 @@ private:
     else
       return std::max(Depth(root->left), Depth(root->right)) + 1;
   }
-public:
+ public:
   BST() : root(nullptr) {}
   void addword(T word) {
     root = addNode(root, word);
