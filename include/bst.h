@@ -19,7 +19,7 @@ private:
 		Node* right;
 	};
 	Node* root;
-	int search(Node* root, T word) {
+	int Search(Node* root, T word) {
 		if (root == nullptr) return 0;
 		else if (root->word == word)
 			return root->count;
@@ -43,7 +43,7 @@ private:
 			root-> count++;
 		return root;
 	}
-	int depth(Node* root) {
+	int Depth(Node* root) {
 		if (root == nullptr) return 0;
 		else
 			return std::max(getDepth(root->left), getDepth(root->right)) + 1;
@@ -53,11 +53,11 @@ public:
 	void addword(T word) {
 		root = addNode(root, word);
 	}
-	int Depth() {
-		return depth(root) - 1;
+	int depth() {
+		return Depth(root) - 1;
 	}
-	int Search(T word) {
-		Node* temp = searchNode(root, word);
+	int search(T word) {
+		Node* temp = Search(root, word);
 		return (temp) ? temp->count : 0;
 	}
 };
