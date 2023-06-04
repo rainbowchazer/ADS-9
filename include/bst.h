@@ -27,9 +27,9 @@ private:
 			return root->count;
 		}
 		else if (root->word < word) {
-			return searchTree(root->right, word);
+			return Search(root->right, word);
 		}
-		return searchTree(root->left, word);
+		return Search(root->left, word);
 	}
 	Node* addNode(Node* root, T word) {
 		if (root == nullptr) {
