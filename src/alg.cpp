@@ -4,7 +4,6 @@
 #include  <locale>
 #include  <cstdlib>
 #include  "bst.h"
-
 BST<std::string> makeTree(const char* filename) {
   BST<std::string> tree;
   std::string word;
