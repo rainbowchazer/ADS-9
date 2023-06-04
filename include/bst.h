@@ -37,7 +37,7 @@ class BST {
     } else if (root-> word < word) {
       root-> right = addNode(root-> right, word);
     } else {
-      root-> count++; 
+      root-> count++;
     }
     return root;
   }
@@ -46,7 +46,7 @@ class BST {
     else
       return std::max(Depth(root->left), Depth(root->right)) + 1;
   }
- 
+
  public:
   BST() : root(nullptr) {}
   void addword(T word) {
