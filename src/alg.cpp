@@ -7,18 +7,22 @@
 
 BST<std::string> makeTree(const char* filename) {
   BST<std::string> tree;
-    std::ifstream file(filename);
-    std::string word;
-    while (!file.eof()) {
-        char ch = tolower(file.get());
-        if (isalpha(ch)) {
-            word += ch;
-        }
-        else {
-            tree.addword(word);
-            word.clear();
-        }
+  std::string word;
+  std::ifstream fin;
+  fin.open(filename);
+  if (!fin.is_open()) {
+    throw std::string("file opening error!");
+  }
+  while (!fin.eof()) {
+    char sym = fin.get();
+    if (sym != ' ' && isalpha(sym)) {
+      sym = tolower(sym);
+      word += sym;
+    } else {
+      tree.add(word);
+      word = "";
     }
-    file.close();
-    return tree;
+  }
+  fin.close();
+  return tree;
 }
