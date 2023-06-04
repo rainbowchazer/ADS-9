@@ -53,7 +53,7 @@ public:
 	}
 	int Search(T word) {
 		Node* temp = searchNode(root, word);
-		return (temp) ? node->count : 0;
+		return (temp) ? temp->count : 0;
 	}
 };
 
