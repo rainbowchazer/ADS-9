@@ -46,7 +46,7 @@ private:
 	int Depth(Node* root) {
 		if (root == nullptr) return 0;
 		else
-			return std::max(getDepth(root->left), getDepth(root->right)) + 1;
+			return std::max(Depth(root->left), Depth(root->right)) + 1;
 	}
 public:
 	BST() : root(nullptr) {}
