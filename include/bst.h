@@ -24,18 +24,18 @@ private:
 	Node* addNode(Node* root, T word) {
 		if (root == nullptr) {
 			root = new Node;
-			root− > word = word;
-			root− > count = 1;
-			root− > left = root− > right = nullptr;
+			root-> word = word;
+			root-> count = 1;
+			root-> left = root-> right = nullptr;
 		}
-		else if (root− > word > word) {
-			root− > left = addNode(root− > left, word);
+		else if (root-> word > word) {
+			root-> left = addNode(root-> left, word);
 		}
-		else if (root− > word < word) {
-			root− > right = addNode(root− > right, word);
+		else if (root-> word < word) {
+			root-> right = addNode(root-> right, word);
 		}
 		else
-			root− > count++;
+			root-> count++;
 		return root;
 	}
 	int depth(Node* root) {
