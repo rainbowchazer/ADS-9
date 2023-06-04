@@ -19,12 +19,17 @@ private:
 		Node* right;
 	};
 	Node* root;
-	Node* Search(Node* root, T word) {
-		if (root == nullptr) return 0;
-		else if (root->word == word)
-			return root;
-		else if (word < root->word) return search(root->left, word);
-		else return search(root->right, word);
+	int Search(Node* root, const T& word) {
+		if (root == nullptr) {
+			return 0;
+		}
+		else if (root->word == word) {
+			return root->count;
+		}
+		else if (root->word < word) {
+			return searchTree(root->right, word);
+		}
+		return searchTree(root->left, word);
 	}
 	Node* addNode(Node* root, T word) {
 		if (root == nullptr) {
@@ -56,9 +61,8 @@ public:
 	int depth() {
 		return Depth(root) - 1;
 	}
-	int search(T word) {
-		Node* temp = Search(root, word);
-		return (temp) ? temp->count : 0;
+	int search(const T& word) {
+		return Search(root, word);
 	}
 };
 
